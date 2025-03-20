@@ -50,8 +50,6 @@ Se ainda não possui o Docker instalado, siga as instruções do site oficial:
 
 Docker -> https://docs.docker.com/engine/install/
 
-Docker Compose
-
 2️⃣. Clonar o repositório
 
 git clone https://github.com/diegooliveirafonseca/api-go-cadastro-empresa.git
