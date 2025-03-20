@@ -40,12 +40,19 @@ api-go-cadastro-empresa/
 │── Makefile    
 
 🚀 Como Executar o Projeto
+
 1️⃣ Configurar e Rodar com Docker
+
 make up
+
 2️⃣ Derrubar os Containers
+
 make down
+
 3️⃣ Compilar e Rodar Sem Docker
+
 go build -o main .
+
 ./main
 
 _________________________________________________________________________________
@@ -86,6 +93,7 @@ POST /login
 }
 
 3️⃣ Enviar Token nas Requisições
+
 Para acessar qualquer endpoint, inclua o token no Header da requisição:
 
 Authorization: Bearer eyJhbGciOiJIUz...
@@ -98,14 +106,19 @@ _____________________________________________________________________________
 🔒 Usuários (Requer Autenticação)
 
 Método	Endpoint	Descrição
+
 GET	/user/listarUsers	     # Lista todos os usuários
 
 🔒 Empresas (Requer Autenticação)
 
 Método	Endpoint	Descrição
+
 GET	/empresa/listarEmpresas	 # Lista todas as empresas
+
 GET	/empresa	             # Consulta uma empresa pelo CNPJ
+
 POST	/empresa/empresas	 # Cadastra uma nova empresa
+
 DELETE	/empresa	         # Remove uma empresa pelo CNPJ
 
 📌 Considerações Finais
