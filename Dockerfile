@@ -1,4 +1,4 @@
-FROM golang:1.23 AS build
+FROM golang:1.23 AS builder
 
 WORKDIR /app
 
@@ -7,6 +7,18 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o main .
+# Adiciona a flag CGO_ENABLED=0 e define a arquitetura correta
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /app/main .
+
+#RUN go build -o main .
+
+FROM alpine:latest  
+
+WORKDIR /app
+
+COPY --from=builder /app/main .
+
+# Permissão de execução (caso necessário)
+RUN chmod +x /app/main
 
 CMD ["/app/main"]

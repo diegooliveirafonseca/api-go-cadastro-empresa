@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/diegooliveirafonseca/api-go-cadastro-empresa/api/database"
-	"github.com/diegooliveirafonseca/api-go-cadastro-empresa/api/routes"
+	"github.com/diegooliveirafonseca/api-go-cadastro-empresa/database"
+	"github.com/diegooliveirafonseca/api-go-cadastro-empresa/routes"
 )
 
 func main() {

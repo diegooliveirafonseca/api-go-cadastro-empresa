@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 
-	"github.com/diegooliveirafonseca/api-go-cadastro-empresa/api/models"
 	_ "github.com/lib/pq"
 )
 
@@ -18,7 +17,7 @@ func Connect() {
 	connStr := fmt.Sprintf(
 		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
 		getEnv("DB_HOST", "db"),
-		getEnv("DB_PORT", "5434"),
+		getEnv("DB_PORT", "5432"),
 		getEnv("DB_USER", "postgres"),
 		getEnv("DB_PASSWORD", "postgres123"),
 		getEnv("DB_NAME", "goapi_development"),
@@ -41,24 +40,4 @@ func getEnv(key, fallback string) string {
 		return value
 	}
 	return fallback
-}
-
-func CreateEmpresa(empresa *models.Empresa) error {
-	// Query para inserir a empresa no banco
-	query := `INSERT INTO empresas (nome, cnpj) VALUES ($1, $2, $3)`
-	_, err := DB.Exec(query, empresa.Nome, empresa.CNPJ)
-	if err != nil {
-		return fmt.Errorf("erro ao criar empresa: %v", err)
-	}
-	return nil
-}
-
-func DeleteEmpresa(cnpj string) error {
-	// Query para deletar a empresa
-	query := `DELETE FROM empresas WHERE cnpj = $1`
-	_, err := DB.Exec(query, cnpj)
-	if err != nil {
-		return fmt.Errorf("erro ao deletar empresa: %v", err)
-	}
-	return nil
 }

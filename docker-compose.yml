@@ -3,26 +3,29 @@ services:
     image: postgres:15
     restart: always
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres123
-      POSTGRES_DB: goapi_development
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5434:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
   api:
-    build: .
+    build: 
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "8080:8080"  # A API será exposta na porta 8080
+      - "8080:8080"
     depends_on:
       - db
     environment:
       DB_HOST: db
       DB_PORT: 5432
-      DB_USER: postgres
-      DB_PASSWORD: postgres123
-      DB_NAME: goapi_development
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+    restart: unless-stopped
 
 volumes:
   postgres_data:
