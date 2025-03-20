@@ -24,7 +24,9 @@ Docker & Docker Compose (gerenciamento de ambiente)
 Makefile (automatização de comandos)
 
 📂 Estrutura do Projeto
+
 api-go-cadastro-empresa/
+
 │── controllers/      # Lógica dos endpoints  
 │── middleware/       # Middleware de autenticação JWT  
 │── models/           # Modelos e interação com o banco de dados  
