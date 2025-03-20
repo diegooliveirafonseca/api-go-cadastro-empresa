@@ -4,10 +4,15 @@ API Go - Cadastro de Empresas 🏢🚀
 API desenvolvida em Go para cadastro e gerenciamento de empresas, utilizando JWT para autenticação e PostgreSQL como banco de dados.
 
 📌 Funcionalidades
+
 ✔️ Cadastro de usuários e autenticação via JWT.
+
 ✔️ Cadastro, consulta e exclusão de empresas via CNPJ.
+
 ✔️ Proteção de rotas: somente usuários autenticados podem acessar os endpoints.
+
 ✔️ Banco de dados PostgreSQL integrado via Docker.
+
 ✔️ Deploy facilitado com Docker e Makefile.
 
 🛠️ Tecnologias Utilizadas
