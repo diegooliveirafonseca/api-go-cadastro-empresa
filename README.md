@@ -139,15 +139,56 @@ Método	Endpoint	Descrição
 
 GET	/empresa/listarEmpresas	 # Lista todas as empresas
 
+📤 Resposta
+
+[
+    {
+        "id": 2,
+        "cnpj": "12345678901235",
+        "nome": "Empresa 2"
+    },
+    {
+        "id": 6,
+        "cnpj": "12345678901237",
+        "nome": "Nova Empresa 2"
+    }
+]
+
 GET	/empresa	             # Consulta uma empresa pelo CNPJ
 
 Exemplo: /empresa?cnpj=12345678000199
 
+📤 Resposta
+
+{
+    "id": 2,
+    "cnpj": "12345678901235",
+    "nome": "Empresa 2"
+}
+
 POST	/empresa/empresas	 # Cadastra uma nova empresa
+
+📥 Request Body (JSON)
+
+{
+  "cnpj": "12345678000199",
+  "nome": "Empresa X"
+}
+
+📤 Resposta
+
+{"message":"Empresa criada com sucesso!"}
 
 DELETE	/empresa	         # Remove uma empresa pelo CNPJ
 
 Exemplo: /empresa?cnpj=12345678000199
+
+📤 Resposta
+
+{"message":"Empresa deletada com sucesso!"}
+
+
+________________________________________________________________________________
 
 Testando com Postman
 
