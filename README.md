@@ -22,6 +22,7 @@ PostgreSQL (armazenamento de dados)
 JWT (autenticação)
 Docker & Docker Compose (gerenciamento de ambiente)
 Makefile (automatização de comandos)
+Postman (Para testes de API)
 
 📂 Estrutura do Projeto
 
@@ -41,15 +42,40 @@ api-go-cadastro-empresa/
 
 🚀 Como Executar o Projeto
 
-1️⃣ Configurar e Rodar com Docker
+Configuração do Ambiente
+
+1️⃣. Instalar o Docker e Docker Compose
+
+Se ainda não possui o Docker instalado, siga as instruções do site oficial:
+
+Docker -> https://docs.docker.com/engine/install/
+
+Docker Compose
+
+2️⃣. Clonar o repositório
+
+git clone https://github.com/diegooliveirafonseca/api-go-cadastro-empresa.git
+cd api-go-cadastro-empresa
+
+3️⃣ Configurar e Rodar com Docker
 
 make up
 
-2️⃣ Derrubar os Containers
+Isso irá:
+
+Criar e iniciar o banco de dados PostgreSQL
+
+Construir e rodar a API em um contêiner
+
+4️⃣ Derrubar os Containers
 
 make down
 
-3️⃣ Compilar e Rodar Sem Docker
+Para reconstruir a API:
+
+make rebuild
+
+5️⃣ Compilar e Rodar Sem Docker (OPCIONAL)
 
 go build -o main .
 
@@ -117,9 +143,27 @@ GET	/empresa/listarEmpresas	 # Lista todas as empresas
 
 GET	/empresa	             # Consulta uma empresa pelo CNPJ
 
+Exemplo: /empresa?cnpj=12345678000199
+
 POST	/empresa/empresas	 # Cadastra uma nova empresa
 
 DELETE	/empresa	         # Remove uma empresa pelo CNPJ
+
+Exemplo: /empresa?cnpj=12345678000199
+
+Testando com Postman
+
+Instalar o Postman -> https://www.postman.com/downloads/
+
+A pasta postman/ possui um arquivo JSON com a configuração dos endpoints.
+
+Abra o Postman
+
+Importe o arquivo postman/Api Go Empresas.postman_collection.json
+
+Configure o token JWT após o login
+
+Teste os endpoints facilmente!
 
 📌 Considerações Finais
 
