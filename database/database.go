@@ -33,6 +33,9 @@ func Connect() {
 	}
 
 	fmt.Println("Banco de dados conectado!")
+
+	// Rodar migrations
+	RunMigrations()
 }
 
 func getEnv(key, fallback string) string {
